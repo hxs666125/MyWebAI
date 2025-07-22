@@ -1,0 +1,345 @@
+body{
+    margin: 0px;
+}
+
+/* 主容器外观 */
+.main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    background-color: rgb(240,241,245);
+    overflow: hidden;
+}
+
+/* 边栏外观 */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 20%;
+    height: 100%;
+    padding: 15px;
+    background-color: rgb(240,241,245);
+    flex-wrap: nowrap;
+}
+
+/* 聊天盒主容器外观 */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 8px;
+    width: 80%;
+    height: 92%;
+    padding: 15px;
+    background-color: rgb(255,255,255);
+    box-shadow: -3px 6px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 聊天盒外观 */
+.chat-box {
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background-color: rgb(255,255,255);
+    box-shadow: -1px -9px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
+/*UM和AM的对话气泡外观*/
+.U-Message{
+    background-color: rgb( 53,121,246);
+    border-radius: 12px;
+    line-height: 24px;
+    max-width: 95%;
+    outline: 2px solid rgb(206 206 206 / 72%);
+    padding: 8px 8px 8px 8px;
+    color: white;
+    transition: all 1s ease-in-out;
+}
+.UMContain{
+    transition: all 1s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+.UMContain.show{/*显示过渡动画*/
+    opacity: 1; /* 完全可见 */
+}
+
+.A-Message{
+    background-color: rgb(154 191 230);
+    border-radius: 12px;
+    line-height: 24px;
+    max-width: 95%;
+    outline: 2px solid rgb(206 206 206 / 72%);
+    padding: 8px 8px 8px 8px;
+    color: white;
+    transition: all 1s ease-in-out;
+}
+.AMContain{
+    transition: all 1s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.AMContain.show{/*显示过渡动画*/
+    opacity: 1; /* 完全可见 */
+}
+
+/* 聊天历史列表外观 */
+.chatlistbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 17%;
+    height: 85%;
+    outline: solid;
+    position: fixed;
+    top: 8%;
+    border-radius: 10px;
+    outline: 2px solid rgb(206 206 206 / 72%);
+    padding: 8px 8px 8px 8px;
+    background-color: rgb(226 226 226);
+    color: white;
+    border: solid;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+li.chatlistthing {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-out;
+}
+
+li.chatlistthing.off{
+    opacity: 0; /* 完全不可见 */
+    /* transform: translateX(-40px);  */
+}
+
+
+/* 历史对话切换按钮外观 */
+.chatbt{
+    width: auto;
+    min-width: 200px;
+    height: 100%;
+    font-size: 13px;
+    border-radius: 10px;
+    outline: 2px solid rgb(206 206 206 / 72%);
+    padding: 8px 8px 8px 8px;
+    background-color: rgb(154 191 230);
+    color: #ffffff;
+    border: solid;
+    cursor: pointer;
+    transform: translateY(-40px); /* 初始位置向上偏移 */
+    transition: all 0.3s ease-in-out;
+}
+
+.chatbt.show {/*显示过渡动画*/
+    background-color: rgb(144, 180, 219);
+    opacity: 1; /* 完全可见 */
+    transform: translateY(0); /* 回到正常位置 */
+    transition: all 0.3s ease-in-out;
+}
+
+.chatbt.show.turn{
+    background-color: #3579f6;
+    opacity: 1; /* 完全可见 */
+    transform: translateY(0); /* 回到正常位置 */
+    transition: all 0.3s ease-in-out;
+}
+
+/* .chatbt.show.turn.t2{
+    background-color: #3579f6;
+    transition: all 0.3s ease-in-out;
+} */
+
+/* 历史对话切换按钮悬停外观 */
+.chatbt:hover{
+    color: white;
+    background-color: rgb( 53,121,246);
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chatbt.show:hover{
+    color: white;
+    background-color: rgb( 53,121,246);
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.delchatbt{
+    position: relative;
+    left: 4%;
+    background-color: rgb(218, 218, 218);
+    border-radius: 50%;
+    border: 2px solid rgb(177 171 171 / 77%);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.delchatbt:hover{
+    color: white;
+    background-color: rgb( 53,121,246);
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 聊天记录盒外观 */
+div#ifbox {
+    gap: 6px;
+    padding-top: 4px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 2px;
+    display: flex;
+    width: 100%;
+    height: auto;
+    max-height: 82%;
+    overflow: auto;
+    flex-direction: column;
+}
+
+/* h1外观 */
+.h1box {
+    display: inline-block;
+    margin: 0px;
+    padding-top: 2%;
+    padding-bottom: 8%;
+    text-align: center;
+}
+
+/* 网络状态盒外观 */
+.netstatusbox{
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid rgb(177 171 171 / 77%);
+    padding-left: 14px;
+    padding-right: 14px;
+    position: fixed;
+    top: 16%;
+    display: block;
+    border-radius: 23px;
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 输入盒主容器 */
+.input-box{
+    border-radius: 20px;
+    outline: 2px solid rgb(192 186 186 / 80%);
+    display: flex;
+    width: auto;
+    padding-right: 4px;
+    gap: 6px;
+    height: 8%;
+    position: absolute;
+    top: 86%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    transform: scale(1.01);
+    transition: all 0.3s ease-in-out;
+}
+
+/* input悬停外观 */
+.input-box:hover{
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* input聚焦外观 */
+.input-box:focus-within{
+    background-color: rgba(177, 171, 171, 0.734);
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 问题输入框外观 */
+.Qinput{
+    padding-left: 20px;
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    resize: none;
+    height: 50px;
+    min-height: 24px;
+    max-height: 96px;
+    overflow-y: hidden;
+    transform:scale(1.01);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 问题输入框聚焦外观 */
+.Qinput:focus{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* 发送按钮外观 */
+.sendbt{
+    width: 50px;
+    height: 50px;
+    font-size: 13px;
+    border-radius: 50%;
+    outline: 2px solid rgb(206 206 206 / 72%);
+    padding: 8px 8px 8px 8px;
+    background-color: rgb(86, 153, 224);
+    color: white;
+    border: solid;
+    cursor: pointer;
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+/* 发送按钮悬停外观 */
+.sendbt:hover{
+    background-color: rgb(0, 123, 255);
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+}
+/*发送按钮聚焦外观(点击后变化的颜色)*/
+.sendbt:focus{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* 新建对话按钮外观 */
+.newchatbt{
+    position: fixed;
+    top: 2%;
+    width: 168px;
+    height: 36px;
+    font-size: 13px;
+    border-radius: 10px;
+    outline: 2px solid rgb(206 206 206 / 72%);
+    padding: 8px 8px 8px 8px;
+    background-color: rgb(0, 123, 255);
+    color: white;
+    border: solid;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+/* 新建对话按钮悬停外观 */
+.newchatbt:hover{
+    background-color: rgb(154 191 230);
+    box-shadow: 1px 0px 6px 4px rgba(0, 0, 0, 0.1);
+}

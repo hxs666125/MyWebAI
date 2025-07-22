@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能助手</title>
+    <style></style>
+    <link rel="stylesheet" href="./static/css/main.css">
+    <script src="./static/scripts/main.js" defer></script>
+</head>
+<body>
+    <div class="main-container" id="MainCT">
+        <div class="sidebar" id="Side"><!--边栏-->
+            <button class="newchatbt" id="Newchat">新对话</button>
+            <ul class="chatlistbox" id="Chatlist"><!--历史对话列表内容需要改为js动态生成-->
+                <!--js动态生成-->
+            </ul>
+        </div>
+        <div class="chat-container">
+            <h1 class="h1box">基于分布式储存的经典著作检索增强生成问答系统</h1>
+            <div class="netstatusbox" id="netbox">
+                <p class="netstatus" id="netcheck">连接中</p><!--该状态盒需改为由js动态生成-->
+            </div>
+            <div class="chat-box" id="ChatB"><!--聊天内容盒对话记录由js动态生成内容-->
+                <div class="infobox" id="ifbox"><!--聊天记录盒-->
+                    <div class="U-Message">示例用户消息</div>
+                    <div class="A-Message">示例助手消息</div>
+                </div>
+                <div class="input-box">
+                    <textarea class="Qinput" id="input" cols="51" rows="1" placeholder="请输入您的问题（建议尽量具体）"></textarea>
+                    <button class="sendbt" id="Sbt">发送</button><!--后期可以改为由js控制颜色变化-->
+                </div>
+        </div>
+    </div>
+    
+</body>
+</html>
